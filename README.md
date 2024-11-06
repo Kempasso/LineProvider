@@ -12,14 +12,21 @@ docker compose -f compose.yaml up -d
 [Тык](http://127.0.0.1:9000/api/v1/docs#)
 
 ### Endpoints:
-**/api/v1/events/<event_id>**
+**PATCH /api/v1/events/<event_id>**
 ```
 Update event by id
 ```
 
-**/api/v1/events/**
+**POST /api/v1/events/**
 ```
-Get all events
+Create event
+Body:
+  {
+  "id": "a4868508710243fca118287bb7873afd",
+  "status": "wait",
+  "coefficient": 1.5,
+  "end_date": "2024-12-06T20:52:03.510Z"
+}
 ```
 
 #### TODO: 
