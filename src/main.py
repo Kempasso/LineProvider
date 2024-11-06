@@ -58,6 +58,7 @@ app = FastAPI(
     lifespan=lifespan,
     docs_url=f"{base_router_path}/docs",
     openapi_url=f"{base_router_path}/openapi.json",
+    title="Line Provider",
     description="Line Provider"
 )
 app.include_router(events.router, prefix=base_router_path)
