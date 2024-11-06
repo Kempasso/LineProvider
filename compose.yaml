@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:8000"
+    command: uvicorn src.main:app --host 0.0.0.0 --workers 4
+    networks:
+      - bet_network
+
+
+  microservices:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3 src/main.py
+    networks:
+      - bet_network
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - bet-redis-data:/data
+    networks:
+      - bet_network
+
+
+
+volumes:
+  bet-redis-data:
+    name: "bet-redis-data"
+
+networks:
+  bet_network:
+    name: "bet_network"
+    driver: bridge
+    external: true
