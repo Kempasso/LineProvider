@@ -18,15 +18,18 @@ Update event by id
 ```
 
 **POST /api/v1/events/**
-```
-Create event
-Body:
-  {
+
+*Body:*
+```json
+{
   "id": "a4868508710243fca118287bb7873afd",
   "status": "wait",
   "coefficient": 1.5,
   "end_date": "2024-12-06T20:52:03.510Z"
 }
+```
+```
+Create event
 ```
 
 #### TODO: 
